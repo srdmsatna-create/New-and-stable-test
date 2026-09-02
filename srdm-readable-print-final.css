@@ -1,0 +1,46 @@
+/* SRDM FINAL READABLE TABLE + PRINT CSS */
+:root{ --srdm-table-font: 12.5px; }
+
+#reportTable,
+.report-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+#reportTable th,
+#reportTable td,
+.report-table th,
+.report-table td{
+  font-size:var(--srdm-table-font)!important;
+  line-height:1.22!important;
+  padding:5px 4px!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+  word-break:normal!important;
+  vertical-align:middle!important;
+}
+
+#reportTable th,
+.report-table th{
+  font-weight:800!important;
+}
+
+/* Keep wide reports compact without making text tiny */
+#reportTable{
+  table-layout:fixed!important;
+}
+
+/* District / Janpad stay readable */
+#reportTable th:nth-child(1),
+#reportTable td:nth-child(1){width:4.8%!important;}
+#reportTable th:nth-child(2),
+#reportTable td:nth-child(2){width:5.8%!important;}
+
+/* Reduce numeric column width so headings wrap instead of shrinking font */
+#reportTable th:nth-child(n+3),
+#reportTable td:nth-child(n+3){width:auto!important;}
+
+@media (max-width:1200px){
+  :root{ --srdm-table-font: 11.5px; }
+  #reportTable th,#reportTable td{padding:4px 3px!important;}
+}

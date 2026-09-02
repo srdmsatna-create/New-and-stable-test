@@ -1,0 +1,25 @@
+{
+  "startedAt": "2026-08-29T04:54:19.777873+00:00",
+  "ok": true,
+  "source": "Official VB-G RAM G",
+  "steps": [
+    {
+      "step": "manual official screenshot received (PMAY-G House)",
+      "ok": true,
+      "detail": "R6.9 Screen-2, RepDay 29/08/2026"
+    },
+    {
+      "step": "manual official screenshot received (Block Plantation-Hort-Trees / Ek Bagiya)",
+      "ok": true,
+      "detail": "R6.9 Screen-2, RepDay 29/08/2026"
+    },
+    {
+      "step": "PMAY-G + Ek Bagiya Labour/MR-issued updated",
+      "ok": true,
+      "detail": "8 Janpads updated"
+    }
+  ],
+  "officialDate": "29-08-2026",
+  "note": "Manual update: PMAY-G and Ek Bagiya Labour/MR-issued refreshed for 29-08-2026.",
+  "finishedAt": "2026-08-29T04:54:19.777889+00:00"
+}

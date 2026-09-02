@@ -1,0 +1,10 @@
+SRDM SATNA V65 FULL GITHUB READY
+
+1. Extract this ZIP.
+2. Upload/replace ALL extracted files and folders in the ROOT of the GitHub repository.
+3. The root homepage file is exactly: index.html
+4. Keep GitHub Pages source: main / (root)
+5. CNAME is included for: srdmsatna.online
+6. Verification marker inside index.html: V64 NEW MODULES ACTIVE
+
+Do not create index(1).html or index.html.html.

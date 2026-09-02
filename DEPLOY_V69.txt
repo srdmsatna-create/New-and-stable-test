@@ -1,0 +1,17 @@
+SRDM SATNA V69 UI FIX DEPLOYMENT
+
+Production architecture:
+1. GitHub Pages serves the repository root.
+2. Official data acquisition is performed on the local PC with Playwright.
+3. ONE_CLICK_DASHBOARD_DATA_UPDATE.bat runs fetch -> merge -> validation -> Git push.
+4. GitHub Actions validates committed dashboard data; it does not scrape the MIS portal.
+5. Excel/PowerShell/cloud experiments are legacy paths and are not production schedulers.
+
+Deploy:
+- Upload/commit the repository contents to the main branch.
+- Keep GitHub Pages source as main / (root).
+- CNAME remains srdmsatna.online.
+- Verify the homepage contains build marker V69-UI-FIX-2026-09-02.
+
+Important temporary business rule:
+- The existing PMAY-G / Ek Bagiya ongoing-count lock through 06-09-2026 remains intentionally unchanged.

@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Credentials and local secrets
+.env
+.env.*
+LOGIN_CREDENTIALS.txt
+*credentials*.txt
+secrets.*
+
+# Local diagnostics / browser output
+diagnostics/
+playwright-report/
+test-results/
+
+# Backups / temporary generated files
+.srdm_backup/
+*_backup*.html
+*BACKUP*.html
+*.bak
+*.tmp
+~$*.xlsx
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Generated/source workbook used by local update only
+incoming/Daily Report.xlsx

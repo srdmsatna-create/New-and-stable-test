@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="hi"><head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SRDM SATNA • VB-G RAM G • 8 Janpad Daily Monitoring</title><meta name="description" content="SRDM Satna & Maihar VB-G RAM G daily monitoring dashboard for 8 Janpads.">
+<meta name="theme-color" content="#082f57">
+<meta property="og:title" content="SRDM SATNA • VB-G RAM G Daily Monitoring">
+<meta property="og:description" content="Satna & Maihar • 8 Janpad official daily monitoring dashboard">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://srdmsatna.online/">
+<meta property="og:image" content="https://srdmsatna.online/assets/social-preview.png">
+<meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>(function(){try{document.documentElement.dataset.theme=localStorage.getItem('srdm-theme')==='dark'?'dark':'light'}catch(e){document.documentElement.dataset.theme='light'}})();</script>
+<link rel="manifest" href="manifest.webmanifest"><meta name="srdm-build" content="V69-UI-FIX-2026-09-02"><link rel="stylesheet" href="styles.min.css?v=69">
+
+
+
+
+
+<link rel="stylesheet" href="modules/zero-mandays.css?v=69">
+</head>
+<body>
+<div id="v64-banner" style="position:sticky;top:0;z-index:99999;background:#0b7a3b;color:white;padding:8px 14px;text-align:center;font:900 14px/1.2 Arial,sans-serif;letter-spacing:.5px">V69 UI FIX • 02-09-2026</div>
+<div class="login-screen" id="loginScreen">
+  <div class="login-shell">
+    <div class="login-brand">
+      <div class="login-emblem">MP</div>
+      <div>
+        <span class="login-kicker">मध्यप्रदेश शासन • पंचायत एवं ग्रामीण विकास विभाग</span>
+        <h1>VB-G RAM G Daily Monitoring Portal</h1>
+        <p>District Satna & Maihar • 8 Janpad • srdmsatna.online</p>
+      </div>
+    </div>
+    <div class="login-card">
+      <div class="login-card-head">
+        <span class="login-lock">🔐</span>
+        <div><h2>Secure Login</h2><p>Portal खोलने के लिए Username और Password दर्ज करें</p></div>
+      </div>
+      <label>Username<input id="loginUsername" type="text" autocomplete="username" placeholder="Username"></label>
+      <label>Password<input id="loginPassword" type="password" autocomplete="current-password" placeholder="Password"></label>
+      <div class="login-error" id="loginError">Username या Password गलत है।</div>
+      <button type="button" id="loginBtn">Login to Dashboard</button>
+      <div class="login-help">Authorized monitoring access only</div>
+    </div>
+  </div>
+</div>
+
+<header class="gov-top">
+  <div class="gov-strip">
+    <div><b>मध्यप्रदेश शासन</b><span>पंचायत एवं ग्रामीण विकास विभाग</span></div>
+    <div class="gov-right">VB-G RAM G • SATNA & MAIHAR</div>
+  </div>
+  <div class="gov-main">
+    <div class="gov-mark">MP</div>
+    <div class="gov-title">
+      <div class="eyebrow">VB-G RAM G • DAILY MONITORING PORTAL</div>
+      <h1 id="portalHeading">जिला सतना एवं मैहर — 8 जनपद डेली मॉनिटरिंग</h1>
+      <p id="portalSubheading">srdmsatna.online • Official Daily Report • Engineer • Cluster • GP</p>
+    </div>
+    <div class="header-side"><div class="datebox"><span>Report Date</span><strong id="reportDate"></strong></div><div class="account-actions no-print"><button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-pressed="false" title="Switch between light and dark mode"><span class="theme-toggle-icon" aria-hidden="true">🌙</span><span class="theme-toggle-label">Dark mode</span></button><button class="change-pass-btn" id="changePasswordBtn" type="button">Change Password</button><button class="logout-btn" id="logoutBtn" type="button">Logout</button></div></div>
+  </div>
+</header>
+<main class="shell">
+
+<section class="premium-hero">
+  <div class="hero-left">
+    <div class="hero-badges">
+      <span class="hero-badge gold">VB-G RAM G 2026-27</span>
+      <span class="hero-badge blue">District Monitoring</span>
+    </div>
+    <h2 id="heroJanpadTitle">SATNA + MAIHAR • 8 JANPAD</h2>
+    <p id="heroJanpadSub">Official Daily Monitoring • Engineer • Cluster • Gram Panchayat</p>
+    <div class="hero-actions no-print">
+      <button type="button" data-janpad-home="ALL" class="hero-primary">सभी 8 जनपद</button>
+      <button type="button" id="heroDataBtn" class="hero-secondary">Daily Report देखें</button>
+    </div>
+  </div>
+  <div class="hero-side">
+    <div class="hero-seal">
+      <span class="seal-top">मध्यप्रदेश</span>
+      <strong>SRDM</strong>
+      <span class="seal-bottom">SATNA • MAIHAR</span>
+    </div>
+    <div class="hero-update">
+      <span>AUTO UPDATE</span>
+      <b>07:00 AM</b>
+      <b>08:00 AM</b>
+    </div>
+  </div>
+</section>
+
+
+<section class="srdm-app-launcher no-print" id="srdmApplications" aria-label="SRDM Applications">
+  <div class="srdm-app-launcher-head">
+    <h2 class="srdm-app-launcher-title">SRDM Applications</h2>
+    <div class="srdm-app-launcher-note">Quick access • SATNA &amp; MAIHAR</div>
+  </div>
+  <div class="srdm-app-grid">
+    <button type="button" class="srdm-app-card" data-srdm-view="mandaysgen">
+      <span class="srdm-app-icon">◉</span><span class="srdm-app-copy"><strong>VB-G RAM G Daily Monitoring</strong><span>Mandays generation &amp; daily progress</span></span>
+    </button>
+    <button type="button" class="srdm-app-card" data-srdm-view="category">
+      <span class="srdm-app-icon">◔</span><span class="srdm-app-copy"><strong>Work Category Analytics</strong><span>Category summary &amp; work analysis</span></span>
+    </button>
+    <button type="button" class="srdm-app-card" data-srdm-view="ekbagiya">
+      <span class="srdm-app-icon">♣</span><span class="srdm-app-copy"><strong>एक बगिया माँ के नाम</strong><span>Work, expenditure &amp; progress dashboard</span></span><span class="srdm-app-new">New</span>
+    </button>
+    <button type="button" class="srdm-app-card" data-srdm-view="engineer">
+      <span class="srdm-app-icon">↗</span><span class="srdm-app-copy"><strong>Sub Engineer Daily Report</strong><span>Engineer &amp; cluster monitoring</span></span>
+    </button>
+    <button type="button" class="srdm-app-card" id="srdmZeroLauncher">
+      <span class="srdm-app-icon">0</span><span class="srdm-app-copy"><strong>Zero Mandays Generation</strong><span>Priority GP alert &amp; follow-up</span></span><span class="srdm-app-new">New</span>
+    </button>
+    <button type="button" class="srdm-app-card" data-srdm-view="dysfunctional">
+      <span class="srdm-app-icon">⚠</span><span class="srdm-app-copy"><strong>Dysfunctional GP Monitor</strong><span>Sub Engineer-wise problem GP tracking</span></span>
+    </button>
+    <button type="button" class="srdm-app-card" data-srdm-view="official">
+      <span class="srdm-app-icon">▤</span><span class="srdm-app-copy"><strong>Janpad Daily Report</strong><span>Official Janpad monitoring report</span></span>
+    </button>
+    <button type="button" class="srdm-app-card" data-srdm-view="state">
+      <span class="srdm-app-icon">◫</span><span class="srdm-app-copy"><strong>State / District Report</strong><span>District and state comparison view</span></span>
+    </button>
+  </div>
+</section>
+
+<section class="selected-janpad-banner no-print" id="selectedJanpadBanner">
+  <div class="selected-icon">↗</div>
+  <div>
+    <span>SCHEME AT A GLANCE</span>
+    <h2 id="selectedJanpadTitle">सभी 8 जनपद</h2>
+    <p id="selectedJanpadDistrict">District Maihar + District Satna</p>
+  </div>
+  <button type="button" id="changeJanpadBtn">Janpad बदलें</button>
+</section>
+<div id="v63BuildMarker" style="display:none">V69-UI-FIX-2026-09-02</div><section class="auto-card"><div id="autoStatus">Auto update status…</div></section>
+
+<nav class="tabs top-tabs clean-tabs no-print" id="v64MainTabs" style="display:flex!important;flex-wrap:wrap!important;overflow:visible!important;height:auto!important;max-height:none!important;">
+  <button class="tab" data-view="trends">Daily Trends</button><button class="tab mandays-tab active" data-view="mandaysgen" style="border:2px solid #0b7a3b!important;background:#e9f7ef!important;color:#075c2d!important">Mandays Generation</button><button type="button" id="srdmZeroForceBtn" class="tab mandays-tab active">Zero Mandays Generation</button>
+  <button class="tab category-tab" data-view="category">Work Category Summary</button>
+  <button class="tab category-tab" data-view="categorysubeng">Category × Sub Engineer</button>
+  <button class="tab category-tab" data-view="categoryworks">Category Work Details</button>
+  <button class="tab" data-view="dysjanpad">Janpad Dysfunctional GP</button>
+  <button class="tab" data-view="dysfunctional">Sub Engineer Dysfunctional GP</button>
+  <button class="tab state-tab" data-view="state">State / District Report</button>
+  <button class="tab" data-view="official">Janpad Daily Report</button>
+  <button class="tab" data-view="engineer">Sub Engineer Daily Report</button>
+  <button class="tab ekbagiya-tab" data-view="ekbagiya">एक बगिया माँ के नाम</button>
+</nav>
+
+<section class="compact-controls no-print">
+  <div class="filters compact-filters">
+    <select id="districtFilter"><option value="ALL">सभी District</option><option value="MAIHAR">MAIHAR</option><option value="SATNA">SATNA</option></select>
+    <select id="janpadFilter"><option value="ALL">सभी Janpad</option></select>
+    <select id="engineerFilter"><option value="ALL">सभी Engineer</option></select>
+    <select id="clusterFilter"><option value="ALL">सभी Cluster</option></select>
+    <select id="categoryFilter" style="border:2px solid #0b7a3b"><option value="ALL">Work Category: सभी</option></select>
+    <select id="sortMetric" title="Ranking metric">
+      <option value="AUTO">Sort metric: Auto</option>
+      <option value="totalGP">Total GP</option>
+      <option value="gpsProgress">GP Progress</option>
+      <option value="labour">Labour Engagement</option>
+      <option value="worksMR">Works with MR</option>
+      <option value="ongoing">Total Ongoing Work</option>
+      <option value="mrs">Muster Rolls</option>
+      <option value="ekOngoing">Ek Bagiya Ongoing</option>
+    </select>
+    <select id="sortOrder" title="Highest / Lowest">
+      <option value="DESC">Highest → Lowest</option>
+      <option value="ASC">Lowest → Highest</option>
+      <option value="NAME">Name A → Z</option>
+    </select>
+    <button id="resetBtn">Reset</button>
+  </div>
+  <div class="compact-actions">
+    <button id="fontMinusBtn" title="Font छोटा करें">A−</button>
+    <button id="fontPlusBtn" title="Font बड़ा करें">A+</button>
+    <select id="printOrientation" class="print-select" title="Print page orientation"><option value="portrait">Portrait</option><option value="landscape" selected>Landscape</option></select>
+    <button id="printBtn">Print / PDF</button>
+    <button id="csvBtn">CSV Export</button>
+    <button id="pptBtn" class="ppt-btn">Current Report PPT</button>
+  </div>
+  <div class="hidden-maintenance" aria-hidden="true">
+    <input id="fileInput" type="file" accept=".xlsx,.xls">
+    <button id="generateBtn" type="button">Generate</button>
+    <select id="pptPageSet"><option value="wide" selected>PPT 16:9</option><option value="standard">PPT 4:3</option></select>
+    <button id="screenPptBtn" type="button">PPT</button>
+    <span id="fileStatus"></span>
+  </div>
+</section>
+
+<section class="kpis ui-retired" id="kpis"></section>
+<section class="alerts ui-retired" id="alerts"></section>
+<section class="report-card clean-report-card"><div class="report-head"><div><h2 id="viewTitle">e-Muster Issuance Report</h2><p id="viewMeta"></p></div></div><div class="table-wrap"><table id="reportTable"></table></div></section>
+<section class="note ui-retired"><b>Engineer-wise:</b> अब हर Janpad में प्रत्येक Engineer / Upyantri की केवल एक consolidated row दिखाई जाती है। एक Engineer के एक से अधिक Cluster होने पर Cluster(s) में सभी Cluster साथ दिखेंगे। Engineer-wise GP, Progress, Ongoing, Works with MR, Labour और Muster Rolls अब RepDay के Engineer distribution पर आधारित रहते हुए प्रत्येक Janpad के Official Sheet1 / Screen-2 totals से exact reconcile होते हैं। PMAY-G / Ek Bagiya ongoing counts VBG work-level mapping से आते हैं।<br><b>Dysfunctional GP:</b> Engineer-wise count अब <b>Total GP − GP Progress</b> से बनता है और प्रत्येक Janpad का total Official Sheet1 / Screen-2 के Dysfunctional GP से exact match करता है।</section>
+</main><footer>SRDM SATNA • VB-G RAM G • District Satna & Maihar • 8 Janpad Monitoring</footer>
+
+<div class="password-modal hidden" id="passwordModal" role="dialog" aria-modal="true" aria-labelledby="passwordModalTitle">
+  <div class="password-dialog">
+    <div class="password-dialog-head">
+      <div><span>ACCOUNT SECURITY</span><h2 id="passwordModalTitle">Change Password</h2></div>
+      <button type="button" id="closePasswordBtn" class="password-close" aria-label="Close">×</button>
+    </div>
+    <div class="password-dialog-body">
+      <label>Current Password<input id="currentPassword" type="password" autocomplete="current-password" placeholder="Current password"></label>
+      <label>New Password<input id="newPassword" type="password" autocomplete="new-password" placeholder="Minimum 6 characters"></label>
+      <label>Confirm New Password<input id="confirmPassword" type="password" autocomplete="new-password" placeholder="Re-enter new password"></label>
+      <div class="password-message" id="passwordMessage"></div>
+      <div class="password-dialog-actions"><button type="button" id="savePasswordBtn" class="save-password-btn">Save New Password</button><button type="button" id="cancelPasswordBtn">Cancel</button></div>
+      <p class="password-note">यह static portal है। बदला हुआ password इस browser/device में सुरक्षित रहेगा।</p>
+    </div>
+  </div>
+</div>
+<script src="modules/theme.js?v=69"></script><script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script><script src="vendor/pptxgen.bundle.js?v=69"></script><script src="auto-status.js?v=69"></script><script src="auto-data.js?v=69"></script><script src="app.js?v=69"></script><script src="modules/search.js?v=69"></script><script src="modules/trends.js?v=69"></script>
+
+
+<!-- SRDM_MANDAYS_SELFCONTAINED_V8_START -->
+
+<script src="modules/mandays-selfcontained-v8.js?v=69"></script>
+<!-- SRDM_MANDAYS_SELFCONTAINED_V8_END -->
+
+
+
+
+
+<!-- SRDM_ZERO_FORCE_V2_START -->
+
+<script src="modules/zero-mandays-force-data.js?v=69"></script>
+<!-- SRDM_ZERO_FORCE_V2_END -->
+
+
+<script id="SRDM_EGOV_LAUNCHER_JS_V1">
+(function(){
+  function openView(view){
+    var tab=document.querySelector('#v64MainTabs .tab[data-view="'+view+'"]');
+    if(tab){tab.click(); setTimeout(function(){var el=document.querySelector('.report-card')||document.getElementById('v64MainTabs'); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});},120);}
+  }
+  document.addEventListener('click',function(e){
+    var card=e.target.closest('.srdm-app-card[data-srdm-view]');
+    if(card){e.preventDefault();openView(card.getAttribute('data-srdm-view'));return;}
+    var zero=e.target.closest('#srdmZeroLauncher');
+    if(zero){e.preventDefault();var b=document.getElementById('srdmZeroForceBtn');if(b)b.click();setTimeout(function(){var a=document.getElementById('srdmV8Alert')||document.getElementById('v64MainTabs');if(a)a.scrollIntoView({behavior:'smooth',block:'start'});},120);}
+  });
+})();
+</script>
+
+<script src="modules/zero-mandays.js?v=69"></script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js?v=69").catch(()=>{}));}</script>
+</body></html>
