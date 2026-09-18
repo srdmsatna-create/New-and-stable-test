@@ -77,8 +77,21 @@ window.SRDM_V8_RECOVERY={"AMARPATAN|अनिल पटेल|MAUHARI KATARA":5,
    s.value=[...s.options].some(o=>o.value===cur)?cur:'ALL';
  }
  function cascade(){
-   const d=document.getElementById('v8District')?.value||'ALL',j=document.getElementById('v8Janpad')?.value||'ALL',e=document.getElementById('v8Engineer')?.value||'ALL';
+   const dSel=document.getElementById('v8District'),jSel=document.getElementById('v8Janpad'),eSel=document.getElementById('v8Engineer'),cSel=document.getElementById('v8Cluster');
+   const d=dSel?.value||'ALL';
    setOpts('v8District',[...new Set([...MP_DISTRICTS,...M.map(r=>district(r.janpad))])].sort((a,b)=>String(a).localeCompare(String(b),'en')),'सभी District');
+   const local=d==='ALL'||d==='SATNA'||d==='MAIHAR';
+   if(!local){
+     setOpts('v8Janpad',[],'सभी Janpad');
+     setOpts('v8Engineer',[],'सभी Sub Engineer');
+     setOpts('v8Cluster',[],'सभी Cluster');
+     if(jSel){jSel.value='ALL';jSel.disabled=true;jSel.title='Janpad drill-down केवल Satna/Maihar के लिए उपलब्ध है';}
+     if(eSel){eSel.value='ALL';eSel.disabled=true;eSel.title='Sub Engineer drill-down केवल Satna/Maihar के लिए उपलब्ध है';}
+     if(cSel){cSel.value='ALL';cSel.disabled=true;cSel.title='Cluster drill-down केवल Satna/Maihar के लिए उपलब्ध है';}
+     return;
+   }
+   [jSel,eSel,cSel].forEach(s=>{if(s){s.disabled=false;s.removeAttribute('title')}});
+   const j=jSel?.value||'ALL',e=eSel?.value||'ALL';
    setOpts('v8Janpad',[...new Set(M.filter(r=>d==='ALL'||district(r.janpad)===d).map(r=>r.janpad))].sort(),'सभी Janpad');
    setOpts('v8Engineer',[...new Set(M.filter(r=>(d==='ALL'||district(r.janpad)===d)&&(j==='ALL'||r.janpad===j)).map(r=>r.engineer))].sort((a,b)=>String(a).localeCompare(String(b),'hi')),'सभी Sub Engineer');
    setOpts('v8Cluster',[...new Set(M.filter(r=>(d==='ALL'||district(r.janpad)===d)&&(j==='ALL'||r.janpad===j)&&(e==='ALL'||r.engineer===e)).map(r=>r.cluster))].sort(),'सभी Cluster');
