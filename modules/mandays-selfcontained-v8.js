@@ -40,6 +40,7 @@ window.SRDM_V8_RECOVERY={"AMARPATAN|अनिल पटेल|MAUHARI KATARA":5,
  function txt(el){return String(el?.textContent||'').replace(/\s+/g,' ').trim()}
  function num(v){const x=Number(String(v||'').replace(/,/g,''));return Number.isFinite(x)?x:0}
  function district(j){return ['MAIHAR','AMARPATAN','RAMNAGAR'].includes(norm(j))?'MAIHAR':'SATNA'}
+ const MP_DISTRICTS=['AGAR MALWA','ALIRAJPUR','ANUPPUR','ASHOKNAGAR','BALAGHAT','BARWANI','BETUL','BHIND','BHOPAL','BURHANPUR','CHHATARPUR','CHHINDWARA','DAMOH','DATIA','DEWAS','DHAR','DINDORI','GUNA','GWALIOR','HARDA','NARMADAPURAM','INDORE','JABALPUR','JHABUA','KATNI','KHANDWA','KHARGONE','MANDLA','MANDSAUR','MORENA','NARSINGHPUR','NEEMUCH','NIWARI','PANNA','RAISEN','RAJGARH','RATLAM','REWA','SAGAR','SATNA','SEHORE','SEONI','SHAHDOL','SHAJAPUR','SHEOPUR','SHIVPURI','SIDHI','SINGRAULI','TIKAMGARH','UJJAIN','UMARIA','VIDISHA'];
  function key(j,e,c){return norm(j)+'|'+norm(e)+'|'+norm(c)}
 
  function rows(){const t=document.getElementById('reportTable');return t?[...t.querySelectorAll('tbody tr')].filter(r=>!r.classList.contains('total-row')):[]}
@@ -77,7 +78,7 @@ window.SRDM_V8_RECOVERY={"AMARPATAN|अनिल पटेल|MAUHARI KATARA":5,
  }
  function cascade(){
    const d=document.getElementById('v8District')?.value||'ALL',j=document.getElementById('v8Janpad')?.value||'ALL',e=document.getElementById('v8Engineer')?.value||'ALL';
-   setOpts('v8District',[...new Set(M.map(r=>district(r.janpad)))].sort(),'सभी District');
+   setOpts('v8District',[...new Set([...MP_DISTRICTS,...M.map(r=>district(r.janpad))])].sort((a,b)=>String(a).localeCompare(String(b),'en')),'सभी District');
    setOpts('v8Janpad',[...new Set(M.filter(r=>d==='ALL'||district(r.janpad)===d).map(r=>r.janpad))].sort(),'सभी Janpad');
    setOpts('v8Engineer',[...new Set(M.filter(r=>(d==='ALL'||district(r.janpad)===d)&&(j==='ALL'||r.janpad===j)).map(r=>r.engineer))].sort((a,b)=>String(a).localeCompare(String(b),'hi')),'सभी Sub Engineer');
    setOpts('v8Cluster',[...new Set(M.filter(r=>(d==='ALL'||district(r.janpad)===d)&&(j==='ALL'||r.janpad===j)&&(e==='ALL'||r.engineer===e)).map(r=>r.cluster))].sort(),'सभी Cluster');
