@@ -1040,3 +1040,58 @@ html[data-theme="dark"] .srdm-app-icon{background:#173553;color:#7bb8ff}
 html[data-theme="dark"] footer{background:#0b2a4d;color:#e6f1ff}
 @media(max-width:760px){.theme-toggle-btn{padding:8px 10px}.theme-toggle-label{display:none}}
 @media print{.theme-toggle-btn{display:none!important}html[data-theme="dark"]{color-scheme:light}html[data-theme="dark"] body{background:#fff;color:#111}}
+
+/* R9.3 dysfunctional table fit fix */
+body[data-report-view="dysfunctional"] .alert-dys-card,
+body[data-report-view="dysfunctional"] .dys-alert-wrap{
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  box-sizing:border-box!important;
+}
+body[data-report-view="dysfunctional"] .dys-alert-wrap{
+  overflow-x:auto!important;
+  overflow-y:auto!important;
+  overscroll-behavior-x:contain;
+  scrollbar-width:thin;
+}
+body[data-report-view="dysfunctional"] .dys-alert-table{
+  width:100%!important;
+  min-width:0!important;
+  table-layout:fixed!important;
+}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-janpad{width:7%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-rank{width:3.5%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-engineer{width:10%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-cluster{width:9%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-total{width:4.5%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-progress{width:5.5%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-dys{width:4.5%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-detail{width:24%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-ongoing{width:7%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-worksmr{width:7%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-labour{width:5%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-mrcov{width:6%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-official{width:7%}
+body[data-report-view="dysfunctional"] .dys-alert-table th,
+body[data-report-view="dysfunctional"] .dys-alert-table td{
+  padding:5px 4px!important;
+  font-size:10px!important;
+  overflow-wrap:anywhere;
+}
+body[data-report-view="dysfunctional"] .dys-alert-table .dys-detail-cell{
+  min-width:0!important;
+  max-width:none!important;
+}
+body[data-report-view="dysfunctional"] .dys-gp-item{
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:3px 6px;
+  padding:3px 4px!important;
+  font-size:9.5px!important;
+}
+body[data-report-view="dysfunctional"] .dys-gp-item span{
+  font-size:9px!important;
+}
+@media(max-width:900px){
+  body[data-report-view="dysfunctional"] .dys-alert-table{min-width:1150px!important}
+}
