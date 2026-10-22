@@ -1060,19 +1060,19 @@ body[data-report-view="dysfunctional"] .dys-alert-table{
   min-width:0!important;
   table-layout:fixed!important;
 }
-body[data-report-view="dysfunctional"] .dys-alert-table col.col-janpad{width:7%}
-body[data-report-view="dysfunctional"] .dys-alert-table col.col-rank{width:3.5%}
-body[data-report-view="dysfunctional"] .dys-alert-table col.col-engineer{width:10%}
-body[data-report-view="dysfunctional"] .dys-alert-table col.col-cluster{width:9%}
-body[data-report-view="dysfunctional"] .dys-alert-table col.col-total{width:4.5%}
-body[data-report-view="dysfunctional"] .dys-alert-table col.col-progress{width:5.5%}
-body[data-report-view="dysfunctional"] .dys-alert-table col.col-dys{width:4.5%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-janpad{width:6%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-rank{width:3%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-engineer{width:9%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-cluster{width:8%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-total{width:4%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-progress{width:5%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-dys{width:4%}
 body[data-report-view="dysfunctional"] .dys-alert-table col.col-detail{width:24%}
 body[data-report-view="dysfunctional"] .dys-alert-table col.col-ongoing{width:7%}
 body[data-report-view="dysfunctional"] .dys-alert-table col.col-worksmr{width:7%}
 body[data-report-view="dysfunctional"] .dys-alert-table col.col-labour{width:5%}
 body[data-report-view="dysfunctional"] .dys-alert-table col.col-mrcov{width:6%}
-body[data-report-view="dysfunctional"] .dys-alert-table col.col-official{width:7%}
+body[data-report-view="dysfunctional"] .dys-alert-table col.col-official{width:12%}
 body[data-report-view="dysfunctional"] .dys-alert-table th,
 body[data-report-view="dysfunctional"] .dys-alert-table td{
   padding:5px 4px!important;
